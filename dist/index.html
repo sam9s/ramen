@@ -368,6 +368,177 @@
       padding: 20px;
     }
     
+    /* Trakt.tv Section */
+    .trakt-section {
+      margin-top: 40px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .trakt-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .trakt-logo {
+      width: 32px;
+      height: 32px;
+      color: #ed1c24;
+    }
+    .trakt-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .trakt-subtitle {
+      font-size: 13px;
+      color: #6b7280;
+    }
+    .trakt-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .trakt-item {
+      display: flex;
+      gap: 10px;
+      background: #0f1115;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      padding: 10px;
+      transition: border-color 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .trakt-item:hover {
+      border-color: #ed1c24;
+    }
+    .trakt-poster {
+      width: 50px;
+      height: 75px;
+      border-radius: 5px;
+      object-fit: cover;
+      background: #21262d;
+    }
+    .trakt-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .trakt-show-title {
+      font-weight: 600;
+      font-size: 12px;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .trakt-episode-title {
+      font-size: 11px;
+      color: #94a3b8;
+      margin-bottom: 2px;
+    }
+    .trakt-meta {
+      font-size: 10px;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+    .trakt-watched {
+      font-size: 10px;
+      color: #ed1c24;
+    }
+    
+    /* IMDb Recently Rated Section */
+    .imdb-section {
+      margin-top: 40px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .imdb-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .imdb-logo {
+      width: 32px;
+      height: 32px;
+      color: #f5c518;
+    }
+    .imdb-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .imdb-subtitle {
+      font-size: 13px;
+      color: #6b7280;
+    }
+    .imdb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .imdb-movie {
+      display: flex;
+      flex-direction: column;
+      background: #0f1115;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+      text-decoration: none;
+      color: inherit;
+      height: 100%;
+    }
+    .imdb-movie:hover {
+      border-color: #f5c518;
+    }
+    .imdb-poster {
+      width: 100%;
+      aspect-ratio: 2/3;
+      object-fit: cover;
+      background: #21262d;
+      display: block;
+    }
+    .imdb-info {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .imdb-movie-title {
+      font-weight: 600;
+      font-size: 12px;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .imdb-movie-year {
+      font-size: 10px;
+      color: #6b7280;
+    }
+    .imdb-rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: #f5c518;
+      font-weight: 600;
+    }
+    .imdb-rating-star {
+      color: #f5c518;
+    }
+    .imdb-rated-date {
+      font-size: 10px;
+      color: #6b7280;
+      margin-top: 2px;
+    }
+    
     @media (max-width: 768px) {
       .top-section { grid-template-columns: 1fr; }
       .app-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
@@ -439,6 +610,39 @@
   <!-- App Grid -->
   <div class="app-grid" id="appGrid"></div>
 
+  <!-- IMDb Recently Rated -->
+  <div class="imdb-section">
+    <div class="imdb-header">
+      <svg class="imdb-logo" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        <path d="M7 7h3v10H7zm5 0h3l2 10h-3l-1.5-7-1.5 7H10z"/>
+      </svg>
+      <div>
+        <h3 class="imdb-title">Recently Rated</h3>
+        <p class="imdb-subtitle">from IMDb</p>
+      </div>
+    </div>
+    <div id="imdb-feed" class="imdb-grid">
+      <div class="loading">Loading...</div>
+    </div>
+  </div>
+
+  <!-- Trakt.tv Recently Watched -->
+  <div class="trakt-section">
+    <div class="trakt-header">
+      <svg class="trakt-logo" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+      </svg>
+      <div>
+        <h3 class="trakt-title">Recently Watched</h3>
+        <p class="trakt-subtitle">from Trakt.tv</p>
+      </div>
+    </div>
+    <div id="trakt-feed" class="trakt-grid">
+      <div class="loading">Loading...</div>
+    </div>
+  </div>
+
   <!-- Letterboxd Recently Watched -->
   <div class="letterboxd-section">
     <div class="letterboxd-header">
@@ -461,6 +665,7 @@
     Ramen Launchpad • Sam CloudboX • 2026
   </div>
 
+  <script src="config.js"></script>
   <script>
     // App configurations
     const APPS = [
@@ -674,6 +879,182 @@
     fetchLetterboxd();
     // Refresh every 30 minutes
     setInterval(fetchLetterboxd, 30 * 60 * 1000);
+
+    // Fetch Trakt.tv Recently Watched
+    async function fetchTrakt() {
+      try {
+        const response = await fetch('recently_watched.json');
+        const data = await response.json();
+        
+        const feedContainer = document.getElementById('trakt-feed');
+        feedContainer.innerHTML = '';
+        
+        // Display up to 4 recent items
+        const items = data.slice(0, 4);
+        
+        for (const item of items) {
+          const isEpisode = item.type === 'episode';
+          const title = isEpisode ? item.show.title : item.movie.title;
+          const year = isEpisode ? item.show.year : item.movie.year;
+          const imdbId = isEpisode ? item.episode.ids.imdb : item.movie.ids.imdb;
+          const tmdbId = isEpisode ? item.show.ids.tmdb : item.movie.ids.tmdb;
+          const imdbUrl = `https://www.imdb.com/title/${imdbId}`;
+          
+          let subtitle = '';
+          let meta = '';
+          
+          if (isEpisode) {
+            subtitle = item.episode.title;
+            meta = `S${item.episode.season}E${item.episode.number} • ${year}`;
+          } else {
+            meta = year;
+          }
+          
+          // Format watched time
+          const watchedDate = new Date(item.watched_at);
+          const timeAgo = formatTimeAgo(watchedDate);
+          
+          // Get image URL from TMDB (using CONFIG)
+          const imageUrl = window.CONFIG?.TMDB_API_KEY && window.CONFIG.TMDB_API_KEY !== '__TMDB_API_KEY__'
+            ? await getTmdbImage(isEpisode, tmdbId, item.episode?.season, item.episode?.number)
+            : '';
+          
+          const card = document.createElement('a');
+          card.className = 'trakt-item';
+          card.href = imdbUrl;
+          card.target = '_blank';
+          card.rel = 'noopener noreferrer';
+          card.innerHTML = `
+            <img class="trakt-poster" src="${imageUrl}" alt="${title}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2250%22 height=%2275%22><rect width=%2250%22 height=%2275%22 fill=%22%2321262d%22/><text x=%2225%22 y=%2240%22 text-anchor=%22middle%22 fill=%22%23ed1c24%22 font-size=%2220%22>▶</text></svg>'">
+            <div class="trakt-info">
+              <div class="trakt-show-title">${title}</div>
+              ${subtitle ? `<div class="trakt-episode-title">${subtitle}</div>` : ''}
+              <div class="trakt-meta">${meta}</div>
+              <div class="trakt-watched">${timeAgo}</div>
+            </div>
+          `;
+          feedContainer.appendChild(card);
+        }
+      } catch (error) {
+        console.error('Failed to fetch Trakt:', error);
+        document.getElementById('trakt-feed').innerHTML = '<div class="loading">Unable to load Trakt history</div>';
+      }
+    }
+    
+    async function getTmdbImage(isEpisode, tmdbId, season, episode) {
+      if (!tmdbId || !window.CONFIG?.TMDB_API_KEY || window.CONFIG.TMDB_API_KEY === '__TMDB_API_KEY__') return '';
+      
+      try {
+        if (isEpisode && season && episode) {
+          // Try to get episode still image
+          const response = await fetch(`https://api.themoviedb.org/3/tv/${tmdbId}/season/${season}/episode/${episode}/images?api_key=${window.CONFIG.TMDB_API_KEY}`);
+          const data = await response.json();
+          if (data.stills && data.stills.length > 0) {
+            return `https://image.tmdb.org/t/p/w300${data.stills[0].file_path}`;
+          }
+        }
+        
+        // Fallback to show/movie poster
+        const type = isEpisode ? 'tv' : 'movie';
+        const response = await fetch(`https://api.themoviedb.org/3/${type}/${tmdbId}/images?api_key=${window.CONFIG.TMDB_API_KEY}`);
+        const data = await response.json();
+        const posters = data.posters;
+        if (posters && posters.length > 0) {
+          return `https://image.tmdb.org/t/p/w92${posters[0].file_path}`;
+        }
+      } catch (e) {
+        console.log('Failed to fetch TMDB image:', e);
+      }
+      return '';
+    }
+    
+    // Fetch IMDb Recently Rated
+    async function fetchImdbRated() {
+      try {
+        const response = await fetch('recently_rated.json');
+        const data = await response.json();
+        
+        const feedContainer = document.getElementById('imdb-feed');
+        feedContainer.innerHTML = '';
+        
+        // Display up to 5 recent rated movies
+        const items = data.slice(0, 5);
+        
+        for (const item of items) {
+          const movie = item.movie;
+          const imdbId = movie.ids.imdb;
+          const tmdbId = movie.ids.tmdb;
+          const imdbUrl = `https://www.imdb.com/title/${imdbId}`;
+          
+          // Format rated time
+          const ratedDate = new Date(item.rated_at);
+          const timeAgo = formatTimeAgo(ratedDate);
+          
+          // Get poster from TMDB (using CONFIG)
+          const posterUrl = tmdbId && window.CONFIG?.TMDB_API_KEY && window.CONFIG.TMDB_API_KEY !== '__TMDB_API_KEY__'
+            ? await getTmdbPoster(tmdbId, 'movie')
+            : '';
+          
+          const card = document.createElement('a');
+          card.className = 'imdb-movie';
+          card.href = imdbUrl;
+          card.target = '_blank';
+          card.rel = 'noopener noreferrer';
+          card.innerHTML = `
+            <img class="imdb-poster" src="${posterUrl}" alt="${movie.title}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22200%22><rect width=%22180%22 height=%22200%22 fill=%22%2321262d%22/><text x=%2290%22 y=%22100%22 text-anchor=%22middle%22 fill=%22%23f5c518%22 font-size=%2240%22>★</text></svg>'">
+            <div class="imdb-info">
+              <div class="imdb-movie-title" title="${movie.title}">${movie.title}</div>
+              <div class="imdb-movie-year">${movie.year}</div>
+              <div class="imdb-rating">
+                <span class="imdb-rating-star">★</span>
+                <span>${item.rating}/10</span>
+              </div>
+              <div class="imdb-rated-date">${timeAgo}</div>
+            </div>
+          `;
+          feedContainer.appendChild(card);
+        }
+      } catch (error) {
+        console.error('Failed to fetch IMDb rated:', error);
+        document.getElementById('imdb-feed').innerHTML = '<div class="loading">Unable to load IMDb ratings</div>';
+      }
+    }
+    
+    async function getTmdbPoster(tmdbId, type) {
+      if (!tmdbId || !window.CONFIG?.TMDB_API_KEY || window.CONFIG.TMDB_API_KEY === '__TMDB_API_KEY__') return '';
+      
+      try {
+        const response = await fetch(`https://api.themoviedb.org/3/${type}/${tmdbId}/images?api_key=${window.CONFIG.TMDB_API_KEY}`);
+        const data = await response.json();
+        const posters = data.posters;
+        if (posters && posters.length > 0) {
+          return `https://image.tmdb.org/t/p/w185${posters[0].file_path}`;
+        }
+      } catch (e) {
+        console.log('Failed to fetch TMDB poster:', e);
+      }
+      return '';
+    }
+    
+    function formatTimeAgo(date) {
+      const now = new Date();
+      const diffMs = now - date;
+      const diffMins = Math.floor(diffMs / 60000);
+      const diffHours = Math.floor(diffMs / 3600000);
+      const diffDays = Math.floor(diffMs / 86400000);
+      
+      if (diffMins < 60) return `${diffMins}m ago`;
+      if (diffHours < 24) return `${diffHours}h ago`;
+      if (diffDays < 7) return `${diffDays}d ago`;
+      return date.toLocaleDateString();
+    }
+
+    // Initialize Trakt and IMDb feeds
+    fetchTrakt();
+    setInterval(fetchTrakt, 5 * 60 * 1000); // Refresh every 5 minutes
+    
+    fetchImdbRated();
+    setInterval(fetchImdbRated, 10 * 60 * 1000); // Refresh every 10 minutes
   </script>
 </body>
 </html>
